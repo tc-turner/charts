@@ -43,7 +43,7 @@ questions:
   label: WordPress Admin Email
 - variable: mariadb.enabled
   default: "true"
-  description: "Deploy a database server as part of this deployment, or set to false and configure an external database connection."
+  description: "Whether to deploy a mariadb server to satisfy the applications database requirements. To use an external database set this to false and configure the externalDatabase parameters"
   type: boolean
   required: true
   label: Install MariaDB
@@ -78,7 +78,7 @@ questions:
   show_if: "mariadb.enabled=false"
 - variable: externalDatabase.password
   default: ""
-  description: "External database password"
+  description: "external database password"
   type: password
   label: External Database password
   show_if: "mariadb.enabled=false"
@@ -90,7 +90,7 @@ questions:
   show_if: "mariadb.enabled=false"
 - variable: externalDatabase.port
   default: "3306"
-  description: "External database port number"
+  description: "External database port number	"
   type: string
   label: External Database Port
   show_if: "mariadb.enabled=false"
@@ -110,15 +110,15 @@ questions:
     label: MariaDB Volume Size
   - variable: mariadb.persistence.storageClass
     default: ""
-    description: "If undefined or null, uses the default StorageClass. Default to null"
+    description: "If unndefined or set to null, using the default storageClass. default to null"
     type: storageclass
-    label: Default StorageClass for MariaDB
+    label: Default Storage Class for MariaDB
 - variable: persistence.enabled
   default: "false"
-  description: "Enable persistent volume for WordPress"
+  description: "Enable persistent volume for Wordpress"
   type: boolean
   required: true
-  label: WordPress Persistent Volume Enabled
+  label: Wordpress Persistent Volume Enabled
   show_subquestion_if: true
   subquestions:
   - variable: persistence.size
@@ -128,19 +128,19 @@ questions:
     label: WordPress Volume Size
   - variable: persistence.storageClass
     default: ""
-    description: "If undefined or null, uses the default StorageClass. Default to null"
+    description: "If unndefined or set to null, using the default storageClass. default to null"
     type: storageclass
-    label: Default StorageClass for WordPress
+    label: Default Storage Class for WordPress
 - variable: serviceType
   default: "NodePort"
-  description: "WordPress Service type"
+  description: "Wordpress Service type"
   type: enum
   options:
     - "ClusterIP"
     - "NodePort"
     - "LoadBalancer"
   required: true
-  label: WordPress Service Type
+  label: Wordpress Service Type
 - variable: nodePorts.http
   default: "32763"
   description: "NodePort http port(to set explicitly, choose port between 30000-32767)"
@@ -168,7 +168,7 @@ questions:
     label: Hostname
   - variable: ingress.hosts[0].path
     default: "/"
-    description: "Path within the url structure"
+    description: "Path within the url structure	"
     type: string
     required: true
     label: Hostname
