@@ -5,8 +5,7 @@
 replicaCount: 1
 
 image:
-  registry: docker.elastic.co
-  repository: elasticsearch/elasticsearch-oss
+  repository: docker.elastic.co/elasticsearch/elasticsearch-oss
   tag: 6.2.3
   pullPolicy: IfNotPresent
 
