@@ -1,23 +1,23 @@
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: {{ template "threedb.fullname" . }}
-#   labels:
-#     app: {{ template "threedb.name" . }}
-#     chart: {{ template "threedb.chart" . }}
-#     release: {{ .Release.Name }}
-#     heritage: {{ .Release.Service }}
-# spec:
-#   type: {{ .Values.service.type }}
-#   ports:
-#     - port: 9200
-#       targetPort: http
-#       protocol: TCP
-#       name: http
-#     - port: 9300
-#       targetPort: tcp
-#       protocol: TCP
-#       name: tcp
-#   selector:
-#     app: {{ template "threedb.name" . }}
-#     release: {{ .Release.Name }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "threedb.fullname" . }}
+  labels:
+    app: {{ template "threedb.name" . }}
+    chart: {{ template "threedb.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: 9200
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: 9300
+      targetPort: tcp
+      protocol: TCP
+      name: tcp
+  selector:
+    app: {{ template "threedb.name" . }}
+    release: {{ .Release.Name }}
