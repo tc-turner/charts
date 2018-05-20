@@ -12,3 +12,6 @@ image:
 
 ingress:
   enabled: False
+
+service:
+  type: NodePort
