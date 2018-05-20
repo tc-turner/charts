@@ -14,6 +14,10 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    - port: {{ .Values.service.port }}
+      targetPort: tcp
+      protocol: TCP
+      name: tcp
   selector:
     app: {{ template "threedb.name" . }}
     release: {{ .Release.Name }}
